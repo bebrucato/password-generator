@@ -1,5 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
+
+//event listener will activate once button is clicked
 generateBtn.addEventListener("click", start);
 function generatePassword() {
   
@@ -20,9 +22,9 @@ function generatePassword() {
   if (confirmSpecialCharacter) {
         passwordCharacters = passwordCharacters.concat(specialChar)
       }
-// next step is to randomaly generate characters = to the length
+//Next step is to randomly generate characters = to the length
 var randomPassword = "";
-      
+//A loop for confirmLength to continuously generate random characters/passwords
 for (var i = 0; i < confirmLength; i++) {
   randomPassword = randomPassword + passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
   console.log(randomPassword);
@@ -50,13 +52,6 @@ var passwordCharacters = [];
  console.log(passwordCharacters)
 
 
-
-
-       
-  
-      
-
- 
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -65,26 +60,20 @@ function writePassword() {
   passwordText.value = password;
 }
 
+//Will activate once button is pressed/has the first prompt for user
 function start() {
  confirmLength = prompt("How many characters?");
  var passwordText = document.querySelector("#password");
  passwordText.value = "";
 //  if character length is > 7, should be at least 8 characters, < 127
+//Setting the value parameters for the password
  if(confirmLength > 7 && confirmLength < 129) {
-  alert("it works!")
+  alert("Great choice!");
   writePassword()
  } else {
-   alert("Yo stuff is too short/long!")
+   alert("Character length must be 8 or more. Please try again.")
  }
 }
 
-//Prompts
 
-
-// Write password to the #password input
-
-
-
-
-// Add event listener to generate button
 
